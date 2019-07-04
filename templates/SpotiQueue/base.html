@@ -39,6 +39,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#">Account</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                        </li>
                     {% else %}
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'login' %}">Login</a>
@@ -48,10 +51,13 @@
                         </li>
                     {% endif %}
             </ul>
-            <form class="form-inline">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
+
+            {% if user.is_authenticated %}
+                <form class="form-inline">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            {% endif %}
         </div>
     </nav>
 </header>
@@ -68,18 +74,21 @@
             {% endif %}
             {% block content %}{% endblock %}
         </div>
-        <div class="col-md-4">
-            <div class="content-section">
-                <h3>SpotiQueue Board</h3>
-                <p class='text-muted'>Top Artists, Albums and Tracks on SpotiQueue
-                    <ul class="list-group">
-                        <li class="list-group-item list-group-item-light">Top 5 Artists</li>
-                        <li class="list-group-item list-group-item-light">Top 5 Albums</li>
-                        <li class="list-group-item list-group-item-light">Top 5 Songs</li>
-                    </ul>
-                </p>
+        {% if user.is_authenticated %}
+            <div class="col-md-4">
+                <div class="content-section">
+                    <h3>SpotiQueue Board</h3>
+                    <p class='text-muted'>Top Artists, Albums and Tracks on SpotiQueue
+                        <ul class="list-group">
+                            <li class="list-group-item list-group-item-light">Top 5 Artists</li>
+                            <li class="list-group-item list-group-item-light">Top 5 Albums</li>
+                            <li class="list-group-item list-group-item-light">Top 5 Songs</li>
+                        </ul>
+                    </p>
+                </div>
             </div>
-        </div>
+        {% endif %}
+
     </div>
 </main>
 
