@@ -1,4 +1,4 @@
 # SpotiQueue
 <br>
-<img src="http://prntscr.com/ochf8g"/>
+<img src="https://i.imgur.com/CtRQvKO.png"/>
 <br>
