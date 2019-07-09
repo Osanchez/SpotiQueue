@@ -3,11 +3,13 @@ from django.contrib.auth.decorators import login_required
 from SpotiQueue.utility.SpotifyAPI import authorization_request
 
 
-def home(request):
-    return render(request, 'SpotiQueue/base.html')
+def landing(request):
+    return render(request, 'SpotiQueue/landing.html')
 
-def login(request):
-    return render()
+
+def dashboard(request):
+    return render(request, 'SpotiQueue/dashboard.html')
+
 
 def authorize(request):
     response = redirect(authorization_request())

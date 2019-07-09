@@ -29,10 +29,10 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Dashboard<span class="sr-only">(current)</span></a>
-                </li>
                     {% if user.is_authenticated %}
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{% url 'dashboard' %}">Dashboard<span class="sr-only">(current)</span></a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Queue</a>
                         </li>
@@ -43,6 +43,9 @@
                             <a class="nav-link" href="{% url 'logout' %}">Logout</a>
                         </li>
                     {% else %}
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{% url 'landing' %}">About<span class="sr-only">(current)</span></a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'login' %}">Login</a>
                         </li>
@@ -63,6 +66,7 @@
 </header>
 
 <main role="main" class="container" style="margin-top: 85px">
+    {% block landing %}{% endblock %}
     <div class="row">
         <div class="col-md-8">
             {% if messages %}
@@ -74,21 +78,6 @@
             {% endif %}
             {% block content %}{% endblock %}
         </div>
-        {% if user.is_authenticated %}
-            <div class="col-md-4">
-                <div class="content-section">
-                    <h3>SpotiQueue Board</h3>
-                    <p class='text-muted'>Top Artists, Albums and Tracks on SpotiQueue
-                        <ul class="list-group">
-                            <li class="list-group-item list-group-item-light">Top 5 Artists</li>
-                            <li class="list-group-item list-group-item-light">Top 5 Albums</li>
-                            <li class="list-group-item list-group-item-light">Top 5 Songs</li>
-                        </ul>
-                    </p>
-                </div>
-            </div>
-        {% endif %}
-
     </div>
 </main>
 

@@ -3,5 +3,8 @@
   <component name="JavaScriptSettings">
     <option name="languageLevel" value="ES6" />
   </component>
-  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.6 (SpotiQueue)" project-jdk-type="Python SDK" />
+  <component name="ProjectResources">
+    <resource url="https://fonts.googleapis.com/css?family=Pacifico" location="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.6 (K-Graph)" project-jdk-type="Python SDK" />
 </project>
