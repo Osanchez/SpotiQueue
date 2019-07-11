@@ -27,7 +27,7 @@ class Playlist(models.Model):
     playlist_name = models.CharField(max_length=128, help_text="Enter a title for the playlist")
 
 
-class Contributors(models.Model):
+class Contributor(models.Model):
     playlist_id = models.ForeignKey(Playlist, on_delete=models.SET_NULL, null=True)
     contributor_id = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
 
